@@ -1,4 +1,4 @@
-	define(['jquery','cookie'],function($){
+	define(['jquery','template','cookie'],function($,template){
 		// NProgress.start();
 
 		// NProgress.done();
@@ -31,12 +31,11 @@
 		// 获取登录信息
 		var loginInfo=$.cookie('loginInfo');
 		var info=JSON.parse(loginInfo);
-		$('.profile img').attr('src',info.tc_avatar);
-		$('.profile h4').html(info.tc_name);
+		// $('.profile img').attr('src',info.tc_avatar);
+		// $('.profile h4').html(info.tc_name);
+		
+		var tplstr='<div class="avatar img-circle"><img src="{{tc_avatar}}"></div><h4>{{tc_name}}</h4>';
+		var html=template.render(tplstr,info);
+		$('.aside .profile').html(html);
+
 	});
-
-	
-
-	
-
-	

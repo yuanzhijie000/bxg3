@@ -1,5 +1,4 @@
-<?php 
-  
+<?php
   $dir = 'main'; // 默认目录名称
   $filename = 'index'; // 默认文件名称
   // 路由：路径的分发、导航，index.php的作用就是根据请求URL的不同导航到不同页面
@@ -27,6 +26,4 @@
   //  /teacher/add
   // 在当前页码嵌入一个子页面
   include('./views/'.$dir.'/'.$filename.'.html');
-
-
- ?>
+?>
