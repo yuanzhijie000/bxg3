@@ -37,5 +37,5 @@
 		var tplstr='<div class="avatar img-circle"><img src="{{tc_avatar}}"></div><h4>{{tc_name}}</h4>';
 		var html=template.render(tplstr,info);
 		$('.aside .profile').html(html);
-
+ 
 	});
