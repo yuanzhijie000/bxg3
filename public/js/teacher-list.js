@@ -1,4 +1,8 @@
 define(['jquery','template','util','bootstrap'],function($,template,util){
+
+	var ret=util.qs('uname');
+	console.log(ret);
+
 	util.setMenu(location.pathname);
 	// $('.navs a[href="'+location.pathname+'"]').addClass('active');
 	$.ajax({
