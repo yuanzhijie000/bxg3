@@ -77,7 +77,7 @@
     </div>
 
 
-    
+    <!-- 模态框信息模板 -->
     <script type="text/template" id="modalTpl">
         <tbody>
             <tr>
@@ -125,7 +125,7 @@
     </script>
 
 
-
+    <!-- 教师列表模板 -->
     <script type="text/template" id="teacherTpl">
         {{each list}}
             <tr>
@@ -141,10 +141,16 @@
                     {{/if}}
                 </td>
                 <td>{{$value.tc_cellphone}}</td>
-                <td data-tcId="{{$value.tc_id}}">
+                <td data-tcId="{{$value.tc_id}}" data-status="{{$value.tc_status}}">
                     <a href="#teacherModal" class="btn btn-info btn-xs preview">查看</a>
                     <a href="./teacher_add.html" class="btn btn-info btn-xs">编 辑</a>
-                    <a href="javascript::" class="btn btn-warning btn-xs">注 销</a>
+                    <a href="javascript:;" class="btn btn-warning btn-xs eod">
+                        {{if $value.tc_status==0}}
+                            注 销
+                        {{else}}
+                            启 用
+                        {{/if}}
+                    </a>
                 </td>
             </tr>        
         {{/each}}

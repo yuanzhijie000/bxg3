@@ -23,6 +23,30 @@ define(['jquery','template','bootstrap'],function($,template){
 						$('#modalInfo').html(html);
 						$('#teacherModal').modal();
 					}
+				});
+			});
+
+			// 启用注销
+			$('.eod').click(function() {
+				var td=$(this).closest('td');
+				var tcId=td.attr('data-tcId');
+				var tcStatus=td.attr('data-status');
+				var that=this;
+				$.ajax({
+					url: '/api/teacher/handle',
+					type: 'post',
+					dataType: 'json',
+					data: {tc_id: tcId,tc_status: tcStatus},
+					success:function(data){
+						if (data.code==200) {
+							td.attr('data-status',data.result.tc_status);
+							if (data.result.tc_status==0) {
+								$(that).html('注 销');
+							}else {
+								$(that).html('启 用');
+							}
+						}
+					}
 				})
 			});
 		}
