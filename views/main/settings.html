@@ -1,26 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <title>学IT - 后台管理系统</title>
-    <?php include('./views/common/style.html') ?>
-    <link rel="stylesheet" type="text/css" href="/public/assets/bootstrap-datepicker/css/bootstrap-datepicker.css">
+    <?php include('./views/common/style.html'); ?>
+
 </head>
 
 <body>
-    <?php include('./views/common/aside.html') ?>
+    <!-- 侧边栏 -->
+    <div class="aside">
+        <?php include('./views/common/aside.html'); ?>
+    </div>
         <!-- 主体 -->
         <div class="main">
             <div class="container-fluid">
-                <?php include('./views/common/header.html') ?>
+                <?php include('./views/common/header.html'); ?>
                     <!-- 讲师资料 -->
                     <div class="body teacher-profile">
                         <div class="settings" id="profile">
+                        <!-- 挖坑 -->
                         </div>
                     </div>
             </div>
         </div>
+
+        <!-- 讲师个人中心模板 -->
         <script type="text/template" id="profileForm">
             <form action="" class="form-horizontal">
                 <div class="form-group">
@@ -115,10 +120,10 @@
                 </div>
             </form>
         </script>
-        <?php include('./views/common/script.html') ?>
-            <script type="text/javascript">
-            require(['js/settings']);
-            </script>
+        <?php include('./views/common/script.html'); ?>
+        <script type="text/javascript">
+            require(['settings']);
+        </script>
 </body>
 
 </html>
