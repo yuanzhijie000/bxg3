@@ -1,4 +1,4 @@
-define(['jquery','template','util','datepicker','language','validate'],function($,template,util){
+define(['jquery','template','util','datepicker','language','validate','form'],function($,template,util){
 	// 高亮选中
 	util.setMenu('/teacher/list');
 
@@ -35,8 +35,16 @@ define(['jquery','template','util','datepicker','language','validate'],function(
 		$('#teacherForm').validate({
 			sendForm:false,
 			valid:function(){
-				location.href='/teacher/list';
-				console.log('ok')
+				$(this).ajaxSubmit({
+					type : 'post',
+					url : url,
+					dataType : 'json',
+					success : function(data){
+						if (data.code==200) {
+							location.href='/teacher/list';
+						}
+					}
+				});
 			},
 			description:{
 				tc_name:{
@@ -44,7 +52,7 @@ define(['jquery','template','util','datepicker','language','validate'],function(
 					valid:'用户名可以使用'
 				},
 				tc_pass:{
-					required:'请输入用户名',
+					required:'请输入密码',
 					pattern:'密码必须是6位数字',
 					valid:'密码有效'
 				},
