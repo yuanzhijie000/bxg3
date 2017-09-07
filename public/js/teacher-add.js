@@ -1,4 +1,4 @@
-define(['jquery','template','util','datepicker','language','validate','form'],function($,template,util){
+define(['jquery','template','util','datepicker','language','validate','form','state'],function($,template,util){
 	// 高亮选中
 	util.setMenu('/teacher/list');
 
