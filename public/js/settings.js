@@ -1,4 +1,4 @@
-define(['jquery','template','util','uploadify'],function($,template,util){
+define(['jquery','template','util','uploadify','datepicker','language','region'],function($,template,util){
 	// 设置导航菜单选中
 	util.setMenu('main/index');
 
@@ -10,6 +10,7 @@ define(['jquery','template','util','uploadify'],function($,template,util){
 			var html=template('profileForm',data.result);
 			$('#profile').html(html);
 
+			// 头像上传
 			$('#upfile').uploadify({
 				width:120,
 				height:120,
@@ -19,9 +20,15 @@ define(['jquery','template','util','uploadify'],function($,template,util){
 				uploader:'/api/uploader/avatar',
 				fileObjName:'tc_avatar',
 				onUploadSuccess:function(f,data){
+					// 图片地址
 					var data=JSON.parse(data);
 					$('.preview img').attr('src',data.result.path);
 				}
+			});
+
+			// 三级联动
+			$('#pcd').region({
+				url:'/public/assets/jquery-region/region.json'
 			});
 		}
 	});

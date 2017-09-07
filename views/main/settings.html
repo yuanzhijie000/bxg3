@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>学IT - 后台管理系统</title>
     <?php include('./views/common/style.html'); ?>
-
+    <link rel="stylesheet" type="text/css" href="/public/assets/bootstrap-datepicker/css/bootstrap-datepicker.css">
 </head>
 
 <body>
@@ -74,7 +74,7 @@
                 </div>
                 <div class="form-group">
                     <label for="" class="col-md-3 control-label">籍贯</label>
-                    <div class="col-md-5 hometown">
+                    <div class="col-md-5 hometown" id="pcd">
                         <select name="tc_province" id="p" data-id='{{tc_province}}' class="form-control input-sm">
                             <option value="">请选择省份</option>
                         </select>
